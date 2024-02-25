@@ -1,11 +1,13 @@
 import express from 'express';
-import { sampleApi } from "../controller/sample.controller.js";
+import sampleRoute from "./sample.route.js"
+import redditRoute from"./reddit.route.js"
 const router = express.Router();
 
 router.route('/').get((req, res) => {
     res.json("Welcome")
 })
-router.route('/sample').get(sampleApi);
 
+router.use('/sample',sampleRoute)
+router.use('/reddit',redditRoute)
 
 export default router;
